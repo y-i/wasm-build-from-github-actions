@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+    <label for="secret"></label>
+    <input type="text" id="secret" />
+    <button type="submit">Check</button>
+  </form>
+  <script type="module">
+    import {secret} from './pkg/wasm_build_from_github_actions.js';
+    document.querySelector('button').addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const input = document.getElementById('secret');
+      const result = secret(input.value);
+      alert(result);
+    });
+  </script>
+</body>
+</html>
